@@ -1,18 +1,62 @@
-import { useState } from "react";
-import forca0 from "../assets/forca0.png";
-import forca1 from "../assets/forca1.png";
-import forca2 from "../assets/forca2.png";
-import forca3 from "../assets/forca3.png";
-import forca4 from "../assets/forca4.png";
-import forca5 from "../assets/forca5.png";
-import forca6 from "../assets/forca6.png";
+import styled from "styled-components";
 
-export default function Jogo() {
-  const [countmiss, setCountMiss] = useState(1);
-  const arraydaforca = [forca0, forca1, forca2, forca3, forca4, forca5, forca6];
+export default function Jogo({
+  arrayforca,
+  countmiss,
+  StartGame,
+  wordcolor,
+  wordgame,
+}) {
   return (
-    <>
-      <img src={arraydaforca[countmiss]} alt={forca0} />
-    </>
+    <div>
+      <Main>
+        <img src={arrayforca[countmiss]} alt={arrayforca} />
+      </Main>
+
+      <Aside>
+        <button onClick={StartGame}>Escolher palavra</button>
+        <Words>
+          <LineWord color={wordcolor} className={wordcolor}>
+            {wordgame}
+          </LineWord>
+        </Words>
+      </Aside>
+    </div>
   );
 }
+const Main = styled.div`
+  width: 60vw;
+  display: flex;
+  justify-content: center;
+  img {
+    height: 60vh;
+  }
+`;
+const Aside = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 40vw;
+  height: 60vh;
+  button {
+    margin-top: 10px;
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    color: white;
+    background-color: green;
+    font-weight: 700;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+`;
+const Words = styled.div`
+  display: flex;
+`;
+const LineWord = styled.h1`
+  margin: 5px;
+  font-size: 50px;
+  color: ${(p) => p.color};
+`;

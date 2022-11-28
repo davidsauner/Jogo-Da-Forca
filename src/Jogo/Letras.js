@@ -5,6 +5,7 @@ export default function Letras({ Letterclicked, letterused }) {
     <Letterbox>
       {letters.map((l) => (
         <button
+          data-test="letter"
           onClick={() => Letterclicked(l)}
           key={l}
           disabled={letterused.includes(l)}

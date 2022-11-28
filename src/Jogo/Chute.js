@@ -10,11 +10,16 @@ export default function Chute({
     <Input>
       <span>Já sei a palavra</span>
       <input
+        data-test="guess-input"
         disabled={disableinput}
         value={tryword}
         onChange={(e) => SetTryWord(e.target.value)}
       ></input>
-      <button disabled={disableinput} onClick={Wordtryed}>
+      <button
+        data-test="guess-button"
+        disabled={disableinput}
+        onClick={Wordtryed}
+      >
         Chute
       </button>
     </Input>

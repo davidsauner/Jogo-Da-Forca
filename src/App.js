@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./App.css";
 import word from "./palavras";
 import styled from "styled-components";
 import forca0 from "./assets/forca0.png";
@@ -35,7 +34,6 @@ export default function App() {
     SetWordColor("black");
   }
   function Endgame() {
-    console.log("endgame");
     SetLetterUsed(letters);
     SetDisableinput(true);
     SetWordGame(chosedword);
@@ -47,7 +45,7 @@ export default function App() {
     Setwordinicial(words);
     const wordarrays = words.split("");
     SetChosedWord(wordarrays);
-    console.log(words);
+    // console.log(words);
     let dash = [];
     wordarrays.forEach((l) => dash.push(" _"));
     SetWordGame(dash);
@@ -65,7 +63,6 @@ export default function App() {
     }
   }
   function Letterigth(l) {
-    console.log("acertou");
     const newwordgame = [...wordgame];
     chosedword.forEach((letra, i) => {
       if (normalletter[i] === l) {

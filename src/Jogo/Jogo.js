@@ -10,13 +10,19 @@ export default function Jogo({
   return (
     <div>
       <Main>
-        <img src={arrayforca[countmiss]} alt={arrayforca} />
+        <img
+          data-test="game-image"
+          src={arrayforca[countmiss]}
+          alt={arrayforca}
+        />
       </Main>
 
       <Aside>
-        <button onClick={StartGame}>Escolher palavra</button>
+        <button data-test="choose-word" onClick={StartGame}>
+          Escolher palavra
+        </button>
         <Words>
-          <LineWord color={wordcolor} className={wordcolor}>
+          <LineWord data-test="word" color={wordcolor}>
             {wordgame}
           </LineWord>
         </Words>
